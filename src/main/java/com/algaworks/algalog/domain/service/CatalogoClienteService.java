@@ -23,6 +23,10 @@ public class CatalogoClienteService {
         }
         return  clienteRepository.save(cliente);
     }
+    public ClienteEntity buscar(Long clienteId){
+        return clienteRepository.findById(clienteId)
+                .orElseThrow(()-> new NegocioException("Cliente não encontrado"));
+    }
 
     @Transactional
     public void excluir (Long clienteID){
