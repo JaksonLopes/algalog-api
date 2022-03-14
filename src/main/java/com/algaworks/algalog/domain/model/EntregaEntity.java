@@ -32,6 +32,8 @@ public class EntregaEntity {
     @ManyToOne //pode ter muitas entregas para um cliente
     private ClienteEntity cliente;
 
+    @Valid
+    @NotNull
     @Embedded //Quero extrair os dados do destinatario para outra class porem mapeando para a mesma tabela
     private DestinatarioEntity destinatario;
 

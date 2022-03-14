@@ -35,7 +35,7 @@ public class EntregaController {
     @GetMapping("/{entregaId}")
     public ResponseEntity<EntregaEntity> buscar (@PathVariable Long entregaId){
         return entregaReposity.findById(entregaId)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+                .map(ResponseEntity :: ok).orElse(ResponseEntity
+                .notFound().build());
     }
 }
