@@ -17,6 +17,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyEmitter
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +40,7 @@ public class ApiExceptionhandler extends ResponseEntityExceptionHandler {
         }
 
         problema.setStatus(status.value());
-        problema.setDatahora(LocalDateTime.now());
+        problema.setDatahora(OffsetDateTime.now());
         problema.setTitulo("Confere totos os campos e tente novamente ");
         problema.setCampos(campos);
 
@@ -52,7 +53,7 @@ public class ApiExceptionhandler extends ResponseEntityExceptionHandler {
         HttpStatus status = HttpStatus.BAD_REQUEST;
         var problema = new Problema();
         problema.setStatus(status.value());
-        problema.setDatahora(LocalDateTime.now());
+        problema.setDatahora(OffsetDateTime.now());
         problema.setTitulo(ex.getMessage());
 
         return handleExceptionInternal(ex,problema,new HttpHeaders(),status,request);
