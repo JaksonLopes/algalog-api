@@ -1,5 +1,6 @@
 package com.algaworks.algalog.domain.model;
 
+import com.algaworks.algalog.domain.ValidationGroups;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,6 +11,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.validation.groups.Default;
 import java.util.Objects;
 
 @Getter
@@ -22,6 +24,7 @@ public class ClienteEntity {
     @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NotNull(groups = ValidationGroups.ClienteID.class)
     private Long id;
 
     @NotBlank
