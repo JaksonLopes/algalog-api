@@ -5,6 +5,7 @@ import com.algaworks.algalog.api.dto.input.EntregaInputDTO;
 import com.algaworks.algalog.api.mapper.EntregaMapper;
 import com.algaworks.algalog.domain.model.EntregaEntity;
 import com.algaworks.algalog.domain.repository.EntregaReposity;
+import com.algaworks.algalog.domain.service.FinalizacaoEntregaServicer;
 import com.algaworks.algalog.domain.service.SolicitacaoEntregaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,6 +19,7 @@ import java.util.List;
 @RequestMapping("/entregas")
 public class EntregaController {
 
+    private FinalizacaoEntregaServicer finalizacaoEntregaServicer;
     @Autowired
     private EntregaReposity entregaReposity;
 
@@ -48,5 +50,12 @@ public class EntregaController {
         return entregaReposity.findById(entregaId)//convertendo de Entidade para DTO
                 .map(entrega -> ResponseEntity.ok(entregaMapper.EntityParaDto(entrega)))
                 .orElse(ResponseEntity.notFound().build());
+    }
+
+    @PutMapping("/{entregaId}/finalizacao")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void  finalizar(@PathVariable Long entregaId){
+        finalizacaoEntregaServicer.finalizar(entregaId);
+
     }
 }

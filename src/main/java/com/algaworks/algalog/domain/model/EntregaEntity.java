@@ -1,4 +1,5 @@
 package com.algaworks.algalog.domain.model;
+import com.algaworks.algalog.domain.exception.NegocioException;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -50,5 +51,13 @@ public class EntregaEntity {
         ocorrencia.setEntrega(this);
         this.getOcorrencia().add(ocorrencia);
         return ocorrencia;
+    }
+
+    public void finalizar() {
+        if (!StatusEntregaEntity.PENDENTE.equals(getEstatusEntrega())){
+            throw new NegocioException("Entrega não pode ser finalizada");
+        }
+        setEstatusEntrega(StatusEntregaEntity.FINALIZADA);
+        setDataFinalizacao(OffsetDateTime.now());
     }
 }
