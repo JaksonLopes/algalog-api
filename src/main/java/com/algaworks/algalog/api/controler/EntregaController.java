@@ -7,6 +7,7 @@ import com.algaworks.algalog.domain.model.EntregaEntity;
 import com.algaworks.algalog.domain.repository.EntregaReposity;
 import com.algaworks.algalog.domain.service.FinalizacaoEntregaServicer;
 import com.algaworks.algalog.domain.service.SolicitacaoEntregaService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,19 +15,14 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
-
+@AllArgsConstructor
 @RestController
 @RequestMapping("/entregas")
 public class EntregaController {
 
     private FinalizacaoEntregaServicer finalizacaoEntregaServicer;
-    @Autowired
     private EntregaReposity entregaReposity;
-
-    @Autowired
     private SolicitacaoEntregaService solicitacaoEntregaService;
-
-    @Autowired
     private EntregaMapper entregaMapper ;
 
     @PostMapping

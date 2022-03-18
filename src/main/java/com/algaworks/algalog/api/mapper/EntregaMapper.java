@@ -3,6 +3,7 @@ package com.algaworks.algalog.api.mapper;
 import com.algaworks.algalog.api.dto.EntregaDTO;
 import com.algaworks.algalog.api.dto.input.EntregaInputDTO;
 import com.algaworks.algalog.domain.model.EntregaEntity;
+import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -10,13 +11,14 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@AllArgsConstructor
 @Component
 public class EntregaMapper {
 
-    @Autowired
     private ModelMapper modelMapper;
 
     public EntregaDTO EntityParaDto(EntregaEntity entrega){
+
         return modelMapper.map(entrega,EntregaDTO.class);
     }
 

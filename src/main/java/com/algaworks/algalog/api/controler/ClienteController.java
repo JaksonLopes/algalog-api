@@ -1,8 +1,11 @@
 package com.algaworks.algalog.api.controler;
 
+import com.algaworks.algalog.api.dto.ClienteDTo;
+import com.algaworks.algalog.api.mapper.Clientemapper;
 import com.algaworks.algalog.domain.model.ClienteEntity;
 import com.algaworks.algalog.domain.repository.ClienteRepository;
 import com.algaworks.algalog.domain.service.CatalogoClienteService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,19 +18,18 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
+@AllArgsConstructor
 @RestController
 @RequestMapping("clientes")
 public class ClienteController {
 
-    @Autowired
     private CatalogoClienteService catalogoClienteService;
-
-    @Autowired
     private ClienteRepository clienteRepository;
+    private Clientemapper clientemapper;
 
     @GetMapping
-    public List<ClienteEntity> listar(){
-        return clienteRepository.findAll();
+    public List<ClienteDTo> listar(){
+        return clientemapper.converteListaDto(clienteRepository.findAll()) ;
     }
     @GetMapping("/{clienteId}")
     public ResponseEntity<ClienteEntity> buscar(@PathVariable Long clienteId){

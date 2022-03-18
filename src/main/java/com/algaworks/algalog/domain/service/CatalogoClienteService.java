@@ -3,14 +3,15 @@ package com.algaworks.algalog.domain.service;
 import com.algaworks.algalog.domain.exception.NegocioException;
 import com.algaworks.algalog.domain.model.ClienteEntity;
 import com.algaworks.algalog.domain.repository.ClienteRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+@AllArgsConstructor
 @Service
 public class CatalogoClienteService {
 
-    @Autowired
     private ClienteRepository clienteRepository;
 
     @Transactional

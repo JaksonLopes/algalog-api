@@ -7,6 +7,7 @@ import com.algaworks.algalog.domain.model.EntregaEntity;
 import com.algaworks.algalog.domain.model.OcorrenciaEntity;
 import com.algaworks.algalog.domain.service.BuscaEntregaService;
 import com.algaworks.algalog.domain.service.RegistroOcorrenciaService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -14,17 +15,13 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+@AllArgsConstructor
 @RestController
 @RequestMapping("/entregas/{entregaId}/ocorrencias")
 public class OcorrenciaController {
 
-    @Autowired
     private BuscaEntregaService buscaEntregaService;
-
-    @Autowired
     private RegistroOcorrenciaService registroOcorrenciaService;
-
-    @Autowired
     private OcorrenciaMapper ocorrenciaMapper;
 
     @PostMapping

@@ -4,14 +4,15 @@ import com.algaworks.algalog.domain.exception.NegocioException;
 import com.algaworks.algalog.domain.model.EntregaEntity;
 import com.algaworks.algalog.domain.model.OcorrenciaEntity;
 import com.algaworks.algalog.domain.repository.EntregaReposity;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+@AllArgsConstructor
 @Service
 public class RegistroOcorrenciaService {
 
-    @Autowired
     private BuscaEntregaService  buscaEntregaService;
 
     // TODO: 14/03/2022 lembra de pesquisar mais sobre  orElseThrow
