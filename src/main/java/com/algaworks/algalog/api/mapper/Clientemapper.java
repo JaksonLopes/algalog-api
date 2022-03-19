@@ -1,9 +1,7 @@
 package com.algaworks.algalog.api.mapper;
 
 import com.algaworks.algalog.api.dto.ClienteDTo;
-import com.algaworks.algalog.api.dto.EntregaDTO;
 import com.algaworks.algalog.domain.model.ClienteEntity;
-import com.algaworks.algalog.domain.model.EntregaEntity;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
