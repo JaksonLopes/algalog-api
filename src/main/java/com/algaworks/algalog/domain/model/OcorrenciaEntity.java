@@ -19,7 +19,7 @@ public class OcorrenciaEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne //pode ter varias ocorrencias para uma emtrega
     @JoinColumn
     private EntregaEntity entrega;
 
